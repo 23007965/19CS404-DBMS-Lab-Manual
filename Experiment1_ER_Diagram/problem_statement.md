@@ -1,99 +1,63 @@
 # ER Diagram Workshop – Submission Template
 
-# Experiment 1: Entity-Relationship (ER) Diagram
+## Objective
+To understand and apply ER modeling concepts by creating ER diagrams for real-world applications.
 
-## 🎯 Objective:
-To understand and apply the concepts of ER modeling by creating an ER diagram for a real-world application.
-
-## 📚 Purpose:
-The purpose of this workshop is to gain hands-on experience in designing ER diagrams that visually represent the structure of a database including entities, relationships, attributes, and constraints.
+## Purpose
+Gain hands-on experience in designing ER diagrams that represent database structure including entities, relationships, attributes, and constraints.
 
 ---
 
-## 🧪 Choose One Scenario:
+# Scenario A: City Fitness Club Management
 
-### 🔹 Scenario 1: University Database
-Design a database to manage students, instructors, programs, courses, and student enrollments. Include prerequisites for courses.
+**Business Context:**  
+FlexiFit Gym wants a database to manage its members, trainers, and fitness programs.
 
-**User Requirements:**
-- Academic programs grouped under departments.
-- Students have admission number, name, DOB, contact info.
-- Instructors with staff number, contact info, etc.
-- Courses have number, name, credits.
-- Track course enrollments by students and enrollment date.
-- Add support for prerequisites (some courses require others).
+**Requirements:**  
+- Members register with name, membership type, and start date.  
+- Each member can join multiple programs (Yoga, Zumba, Weight Training).  
+- Trainers assigned to programs; a program may have multiple trainers.  
+- Members may book personal training sessions with trainers.  
+- Attendance recorded for each session.  
+- Payments tracked for memberships and sessions.
+
+### ER Diagram:
+*Paste or attach your diagram here*  
+![ER Diagram](er_diagram_fitness.png)
+
+### Entities and Attributes
+
+| Entity | Attributes (PK, FK) | Notes |
+|--------|--------------------|-------|
+|        |                    |       |
+|        |                    |       |
+|        |                    |       |
+|        |                    |       |
+|        |                    |       |
+
+### Relationships and Constraints
+
+| Relationship | Cardinality | Participation | Notes |
+|--------------|------------|---------------|-------|
+|              |            |               |       |
+|              |            |               |       |
+|              |            |               |       |
+
+### Assumptions
+- 
+- 
+- 
 
 ---
 
-### 🔹 Scenario 2: Hospital Database
-Design a database for patient management, appointments, medical records, and billing.
 
-**User Requirements:**
-- Patient details including contact and insurance.
-- Doctors and their departments, contact info, specialization.
-- Appointments with reason, time, patient-doctor link.
-- Medical records with treatments, diagnosis, test results.
-- Billing and payment details for each appointment.
 
 ---
 
-## 📝 Tasks:
-1. Identify entities, relationships, and attributes.
-2. Draw the ER diagram using any tool (draw.io, dbdiagram.io, hand-drawn and scanned).
-3. Include:
-   - Cardinality & participation constraints
-   - Prerequisites for University OR Billing for Hospital
-4. Explain:
-   - Why you chose the entities and relationships.
-   - How you modeled prerequisites or billing.
+## Instructions for Students
 
-# ER Diagram Submission
-
-NAME - P PARTHIBAN
-REGISTER NUMBER - 212223230145
-
-## Scenario Chosen:
-University ER Diagram
-
-## ER Diagram:
-
-![Screenshot 2025-04-30 215947](https://github.com/user-attachments/assets/bd9483ac-4a26-4a82-beb7-8fe884e3d602)
-
-
-## Entities and Attributes:
-1.Student - name, phone no., register no., subjects enrolled
-
-2.Department -dept name, dept id
-
-3.Program- program name, program code, courses
-
-4.Course - course code, course name, credits
-
-5.Faculty - name, subject, faculty id
-
-6.University - university name, university id, students and staff
-
-...
-
-## Relationships and Constraints:
-1.Student – Enrollment – Course
-```
-Many-to-Many via Enrollment(Each student can enroll in many courses; each course can have many students)
-```
-Participation: Total for Enrollment
-
-2.Department – Program One-to-Many(A department offers many programs; each program belongs to one department)
-
-3.Program – Course One-to-Many(A program offers many courses; a course belongs to one program)
-
-4.Course – Prerequisite – Course Recursive Many-to-Many(A course can have multiple prerequisites; a course can be a prerequisite for multiple other courses)
-
-5.Instructor – Course One-to-Many(An instructor can teach multiple courses; each course is taught by one instructor)
-...
-## Extension (Prerequisite / Billing):
-Modeled with a recursive relationship on the Course entity. Represented by a separate entity Prerequisite with two foreign keys referencing Course. Ensures that one course must be completed before enrolling in another.Prerequisites are not modeled in the diagram. To add prerequisites: Create a recursive relationship on the Course entity (e.g., prerequisite_for). Billing is also not included.To include billing: Introduce a Billing or Payment entity related to Student and Program/Course, with attributes like amount, due date, status.
-## Design Choices:
-Entities were selected to reflect distinct real-world components of a university system (e.g., students, faculties, courses). Attributes were chosen based on minimal information needed to identify and manage these entities. Relationships accurately capture the natural hierarchy and many-to-many connections in educational structures. Programs containing multiple courses, and courses being part of multiple programs, support curriculum flexibility. Faculties handle courses, which is a functional and administrative link. The university is at the top of the structure, logically managing both students and faculties.
-## RESULT
-The ER model captures students, instructors, courses, programs, and their relationships, including enrollments and prerequisites. It’s clear, efficient, and supports future database extensions.
-
+1. Complete **all three scenarios** (A, B, C).  
+2. Identify entities, relationships, and attributes for each.  
+3. Draw ER diagrams using **draw.io / diagrams.net** or hand-drawn & scanned.  
+4. Fill in all tables and assumptions for each scenario.  
+5. Export the completed Markdown (with diagrams) as **a single PDF**
