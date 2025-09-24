@@ -8,40 +8,36 @@ Gain hands-on experience in designing ER diagrams that represent database struct
 
 ---
 
-# Scenario A: City Fitness Club Management
+# Scenario : City Library Event & Book Lending System
 
 **Business Context:**  
-FlexiFit Gym wants a database to manage its members, trainers, and fitness programs.
+The Central Library wants to manage book lending and cultural events.
 
 **Requirements:**  
-- Members register with name, membership type, and start date.  
-- Each member can join multiple programs (Yoga, Zumba, Weight Training).  
-- Trainers assigned to programs; a program may have multiple trainers.  
-- Members may book personal training sessions with trainers.  
-- Attendance recorded for each session.  
-- Payments tracked for memberships and sessions.
+- Members borrow books, with loan and return dates tracked.  
+- Each book has title, author, and category.  
+- Library organizes events; members can register.  
+- Each event has one or more speakers/authors.  
+- Rooms are booked for events and study.  
+- Overdue fines apply for late returns.
 
 ### ER Diagram:
 *Paste or attach your diagram here*  
-![ER Diagram](er_diagram_fitness.png)
+![ER Diagram](er_diagram_library.png)
 
 ### Entities and Attributes
 
-| Entity | Attributes (PK, FK) | Notes |
-|--------|--------------------|-------|
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
 
-### Relationships and Constraints
+| **Entity**                           | **Attributes**                                                              |
+| ------------------------------------ | --------------------------------------------------------------------------- |
+| **Member**                           | MemberID (PK), Name, Email, Phone, Address                                  |
+| **Book**                             | BookID (PK), Title, Author, Category, AvailabilityStatus                    |
+| **Loan** (Associative)               | LoanID (PK), LoanDate, ReturnDate, DueDate, FineAmount                      |
+| **Event**                            | EventID (PK), EventName, EventDate, EventType (e.g., Cultural, Author Talk) |
+| **Speaker/Author**                   | SpeakerID (PK), Name, Profession (Author, Scholar, Artist, etc.)            |
+| **Room**                             | RoomID (PK), RoomName, Capacity, Purpose (Study / Event)                    |
+| **Event Registration** (Associative) | RegistrationID (PK), RegistrationDate                                       |
 
-| Relationship | Cardinality | Participation | Notes |
-|--------------|------------|---------------|-------|
-|              |            |               |       |
-|              |            |               |       |
-|              |            |               |       |
 
 ### Assumptions
 - 
@@ -50,9 +46,6 @@ FlexiFit Gym wants a database to manage its members, trainers, and fitness progr
 
 ---
 
-
-
----
 
 ## Instructions for Students
 
