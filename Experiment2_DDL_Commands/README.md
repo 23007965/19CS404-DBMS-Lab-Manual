@@ -119,11 +119,7 @@ FROM Archived_students;
 
 **Question 2**
 ---
--- Create a table named Invoices with the following constraints:
-InvoiceID as INTEGER should be the primary key.
-InvoiceDate as DATE.
-DueDate as DATE should be greater than the InvoiceDate.
-Amount as REAL should be greater than 0.
+-- Create a table named Invoices with the following constraints.
 
 ```sql
 CREATE TABLE Invoices(
@@ -160,12 +156,7 @@ CREATE TABLE jobs(
 
 **Question 4**
 ---
--- Create a table named ProjectAssignments with the following constraints:
-AssignmentID as INTEGER should be the primary key.
-EmployeeID as INTEGER should be a foreign key referencing Employees(EmployeeID).
-ProjectID as INTEGER should be a foreign key referencing Projects(ProjectID).
-AssignmentDate as DATE should be NOT NULL.
-For example:
+-- Create a table named ProjectAssignments with the following constraints
 
 ```sql
 CREATE TABLE ProjectAssignments(
@@ -198,12 +189,7 @@ VALUES (301,'Michael Jordan','123 Maple St','Chicago','60616');
 
 **Question 6**
 ---
--- Create a table named Products with the following columns:
-
-ProductID as INTEGER
-ProductName as TEXT
-Price as REAL
-Stock as INTEGER
+-- Create a table named Products with the following columns
 
 ```sql
 CREATE TABLE Products(
@@ -220,12 +206,7 @@ CREATE TABLE Products(
 
 **Question 7**
 ---
--- Insert the following products into the Products table:
-
-Name        Category     Price       Stock
-----------  -----------  ----------  ----------
-Smartphone  Electronics  800         150
-Headphones  Accessories  200         300
+-- Insert the following products into the Products table
 
 
 ```sql
@@ -239,28 +220,17 @@ INSERT INTO Products(Name,Category,Price,Stock) VALUES('Headphones','Accessories
 
 **Question 8**
 ---
--- Create a new table named item with the following specifications and constraints:
-item_id as TEXT and as primary key.
-item_desc as TEXT.
-rate as INTEGER.
-icom_id as TEXT with a length of 4.
-icom_id is a foreign key referencing com_id in the company table.
-The foreign key should cascade updates and deletes.
-item_desc and rate should not accept NULL.
+-- Insert all customers from Old_customers into Customers. Table attributes are CustomerID, Name, Address, Email
+
 
 ```sql
-CREATE TABLE item(
-    item_id TEXT PRIMARY KEY,
-    item_desc TEXT NOT NULL,
-    rate INTEGER NOT NULL,
-    icom_id TEXT(4),
-    FORIGEN KEY (icom_id) REFERENCES company(com_id) ON UPDATE CASCADE ON DELETE CASCADE
-);
+INSERT INTO Customers(CustomerID,Name,Address,Email)
+SELECT CustomerID,Name,Address,Email
+FROM old_customers;
 ```
 
 **Output:**
-
-![Output8](output.png)
+<img width="1157" height="289" alt="image" src="https://github.com/user-attachments/assets/92ce54f8-39e5-4780-b220-4698c1fc3258" />
 
 **Question 9**
 ---
