@@ -113,8 +113,8 @@ SELECT RollNo,Name,Gender,Subject,MARKS
 FROM Archived_students;
 ```
 
-**Output:**
-<img width="1205" height="311" alt="image" src="https://github.com/user-attachments/assets/b3e7901f-32f0-4702-b274-49da81c56509" />
+<img width="1117" height="304" alt="image" src="https://github.com/user-attachments/assets/36b0475c-6b3f-468f-9750-2e4e5dfdf27e" />
+
 
 
 **Question 2**
