@@ -105,94 +105,157 @@ CREATE TABLE Table_Name (
 
 **Question 1**
 --
--- Paste Question 1 here
+-- Insert all students from Archived_students table into the Student_details table.
 
 ```sql
--- Paste your SQL code below for Question 1
+INSERT INTO Student_details(RollNo,Name,Gender,Subject,Marks)
+SELECT RollNo,Name,Gender,Subject,MARKS
+FROM Archived_students;
 ```
 
 **Output:**
+<img width="1205" height="311" alt="image" src="https://github.com/user-attachments/assets/b3e7901f-32f0-4702-b274-49da81c56509" />
 
-![Output1](output.png)
 
 **Question 2**
 ---
--- Paste Question 2 here
+-- Create a table named Invoices with the following constraints:
+InvoiceID as INTEGER should be the primary key.
+InvoiceDate as DATE.
+DueDate as DATE should be greater than the InvoiceDate.
+Amount as REAL should be greater than 0.
 
 ```sql
--- Paste your SQL code below for Question 2
+CREATE TABLE Invoices(
+        InvoiceID INTEGER PRIMARY KEY,
+        InvoiceDate DATE,
+        DueDate DATE, 
+        Amount REAL,
+        CHECK (DueDate>InvoiceDate),
+        CHECK (Amount>0)
+);
 ```
 
 **Output:**
 
-![Output2](output.png)
+<img width="1168" height="290" alt="image" src="https://github.com/user-attachments/assets/bb799e61-8bea-4126-baca-fc606bacf0db" />
+
 
 **Question 3**
 ---
--- Paste Question 3 here
+--  create a table named jobs including columns job_id, job_title, min_salary and max_salary, and make sure that, the default value for job_title is blank and min_salary is 8000 and max_salary is NULL will be entered automatically at the time of insertion if no value assigned for the specified columns.
 
 ```sql
--- Paste your SQL code below for Question 3
+CREATE TABLE jobs(
+    job_id INT PRIMARY KEY,
+    job_title VARCHAR(255) DEFAULT ' ',
+    min_salary INT DEFAULT 8000,
+    max_salary INT DEFAULT NULL
+);
 ```
 
 **Output:**
+<img width="1174" height="342" alt="image" src="https://github.com/user-attachments/assets/c5cde6f3-b31b-4bb0-b2e7-23c56fc8563d" />
 
-![Output3](output.png)
 
 **Question 4**
 ---
--- Paste Question 4 here
+-- Create a table named ProjectAssignments with the following constraints:
+AssignmentID as INTEGER should be the primary key.
+EmployeeID as INTEGER should be a foreign key referencing Employees(EmployeeID).
+ProjectID as INTEGER should be a foreign key referencing Projects(ProjectID).
+AssignmentDate as DATE should be NOT NULL.
+For example:
 
 ```sql
--- Paste your SQL code below for Question 4
+CREATE TABLE ProjectAssignments(
+    AssignmentID INTEGER PRIMARY KEY,
+    EmployeeID INTEGER,
+    ProjectID INTEGER,
+    AssignmentDate DATE NOT NULL,
+    FOREIGN KEY (EmployeeID) REFERENCES Employees(EmployeeID),
+    FOREIGN KEY (ProjectID) REFERENCES Projects(ProjectID)
+);
 ```
 
 **Output:**
+<img width="1150" height="294" alt="image" src="https://github.com/user-attachments/assets/50f63f4d-ca43-4ad6-abf7-8c16aef21083" />
 
-![Output4](output.png)
 
 **Question 5**
 ---
--- Paste Question 5 here
+-- Insert a customer with CustomerID 301, Name Michael Jordan, Address 123 Maple St, City Chicago, and ZipCode 60616 into the Customers table.
 
 ```sql
--- Paste your SQL code below for Question 5
+INSERT INTO Customers(CustomerID,Name,Address,City,ZipCode) 
+VALUES (301,'Michael Jordan','123 Maple St','Chicago','60616');
 ```
 
 **Output:**
 
-![Output5](output.png)
+<img width="1140" height="246" alt="image" src="https://github.com/user-attachments/assets/20b7d4a6-cddf-4093-989f-8b404d83074b" />
+
 
 **Question 6**
 ---
--- Paste Question 6 here
+-- Create a table named Products with the following columns:
+
+ProductID as INTEGER
+ProductName as TEXT
+Price as REAL
+Stock as INTEGER
 
 ```sql
--- Paste your SQL code below for Question 6
+CREATE TABLE Products(
+    ProductID INTEGER,
+    ProductName TEXT,
+    Price REAL,
+    Stock INTEGER
+);
 ```
 
 **Output:**
+<img width="1149" height="317" alt="image" src="https://github.com/user-attachments/assets/448c0dd2-2cbd-4316-a22c-378262d418cd" />
 
-![Output6](output.png)
 
 **Question 7**
 ---
--- Paste Question 7 here
+-- Insert the following products into the Products table:
+
+Name        Category     Price       Stock
+----------  -----------  ----------  ----------
+Smartphone  Electronics  800         150
+Headphones  Accessories  200         300
+
 
 ```sql
--- Paste your SQL code below for Question 7
+INSERT INTO Products(Name,Category,Price,Stock) VALUES('Smartphone','Electronics',800,150);
+INSERT INTO Products(Name,Category,Price,Stock) VALUES('Headphones','Accessories',200,300);
 ```
 
 **Output:**
+<img width="1154" height="370" alt="image" src="https://github.com/user-attachments/assets/426e791d-7210-4dac-b0bc-071bbdc4c5ea" />
 
-![Output7](output.png)
 
 **Question 8**
 ---
--- Paste Question 8 here
+-- Create a new table named item with the following specifications and constraints:
+item_id as TEXT and as primary key.
+item_desc as TEXT.
+rate as INTEGER.
+icom_id as TEXT with a length of 4.
+icom_id is a foreign key referencing com_id in the company table.
+The foreign key should cascade updates and deletes.
+item_desc and rate should not accept NULL.
 
 ```sql
--- Paste your SQL code below for Question 8
+CREATE TABLE item(
+    item_id TEXT PRIMARY KEY,
+    item_desc TEXT NOT NULL,
+    rate INTEGER NOT NULL,
+    icom_id TEXT(4),
+    FORIGEN KEY (icom_id) REFERENCES company(com_id) ON UPDATE CASCADE ON DELETE CASCADE
+);
 ```
 
 **Output:**
@@ -201,27 +264,35 @@ CREATE TABLE Table_Name (
 
 **Question 9**
 ---
--- Paste Question 9 here
+-- Write an SQL query to add two new columns, designation and net_salary, to the table Companies. The designation column should have a data type of varchar(50), and the net_salary column should have a data type of number.
 
 ```sql
--- Paste your SQL code below for Question 9
+ALTER TABLE Companies
+ADD COLUMN designation varchar(50);
+ALTER TABLE Companies
+ADD COLUMN net_salary number;
 ```
 
 **Output:**
 
-![Output9](output.png)
+<img width="1165" height="418" alt="image" src="https://github.com/user-attachments/assets/013d2e4a-e504-4569-9660-2e3817bc273b" />
+
 
 **Question 10**
 ---
--- Paste Question 10 here
+-- Write a SQL query to add a new column MobileNumber of type NUMBER and a new column Address of type VARCHAR(100) to the Student_details table.
 
 ```sql
--- Paste your SQL code below for Question 10
+ALTER TABLE Student_details
+ADD COLUMN MobileNumber NUMBER;
+ALTER TABLE Student_details
+ADD COLUMN Address VARCHAR(100);
 ```
 
 **Output:**
 
-![Output10](output.png)
+<img width="1155" height="407" alt="image" src="https://github.com/user-attachments/assets/72a3ff56-6e46-4eae-81d1-b04d39eb63ac" />
+
 
 
 ## RESULT
