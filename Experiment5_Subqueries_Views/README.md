@@ -137,15 +137,23 @@ WHERE grade = (
 
 **Question 5**
 ---
--- Paste Question 5 here
+From the following tables, write a SQL query to find those salespeople who earned the maximum commission. Return ord_no, purch_amt, ord_date, and salesman_id.
 
 ```sql
--- Paste your SQL code below for Question 5
+SELECT o.ord_no, o.purch_amt, o.ord_date, o.salesman_id
+FROM orders o
+JOIN salesman s ON o.salesman_id = s.salesman_id
+WHERE s.commission = (
+    SELECT MAX(commission)
+    FROM salesman
+);
+
 ```
 
 **Output:**
 
-![Output5](output.png)
+<img width="774" height="329" alt="image" src="https://github.com/user-attachments/assets/429a0954-ac11-4a93-984e-a9515455d15b" />
+
 
 **Question 6**
 ---
@@ -229,14 +237,22 @@ WHERE salesman_id = (
 
 **Question 9**
 ---
-
+Write a SQL query to Retrieve the medications with dosages equal to the lowest dosage
+Table Name: Medications (attributes: medication_id, medication_name, dosage)
 
 ```sql
-
+SELECT *
+FROM Medications
+WHERE dosage = (
+    SELECT MIN(dosage)
+    FROM Medications
+);
 
 ```
 
 **Output:**
+
+<img width="895" height="315" alt="image" src="https://github.com/user-attachments/assets/f38dda81-ac38-41a9-9533-5b12ab792e59" />
 
 
 **Question 10**
