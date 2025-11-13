@@ -54,7 +54,13 @@ ON table1.column = table2.column;
 
 **Question 1**
 --
--- Paste Question 1 here
+Write the SQL query that achieves the selection of all columns from the "patients" table (aliased as "p"), with an inner join on the "patient_id" column and conditions filtering for test results with the test names 'Blood Test' or 'Blood Pressure' and results not containing the substring 'Normal'.
+
+PATIENTS TABLE:
+ATTRIBUTES - patient_id, first_name, last_name, date_of_birth, admission_date, discharge_date, doctor_id
+
+TEST_RESULT TABLES:
+ATTRIBUTES - result_id, patient_id, test_name, result, test_date
 
 ```sql
 -- Paste your SQL code below for Question 1
