@@ -70,6 +70,7 @@ WHERE salesman_id = (
 ```
 
 **Output:**
+
 <img width="1214" height="426" alt="image" src="https://github.com/user-attachments/assets/e6d86873-044d-44ba-aa83-dc664f649635" />
 
 **Question 2**
@@ -89,6 +90,7 @@ WHERE grade = (
 ```
 
 **Output:**
+
 <img width="1213" height="478" alt="image" src="https://github.com/user-attachments/assets/10020402-72c2-4620-bf09-eabb010c695b" />
 
 
@@ -107,6 +109,7 @@ WHERE customer_id = (
 ```
 
 **Output:**
+
 <img width="1215" height="347" alt="image" src="https://github.com/user-attachments/assets/125e22d9-543a-4cac-ba35-2965f190edb4" />
 
 
@@ -180,6 +183,7 @@ JOIN (
 ```
 
 **Output:**
+
 <img width="865" height="511" alt="image" src="https://github.com/user-attachments/assets/96ac023c-158e-4e17-be36-07d97e8fcb56" />
 
 
@@ -199,6 +203,7 @@ WHERE LENGTH(department_name) > (
 ```
 
 **Output:**
+
 <img width="823" height="427" alt="image" src="https://github.com/user-attachments/assets/bcc9f2b4-7a57-4d32-aab4-da87cf416afc" />
 
 
@@ -245,6 +250,7 @@ WHERE AGE < 30;
 ```
 
 **Output:**
+
 <img width="1217" height="644" alt="image" src="https://github.com/user-attachments/assets/75030149-7513-4fe7-90eb-6b4f712b789d" />
 
 
