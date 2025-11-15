@@ -188,6 +188,7 @@ INNER JOIN
 
 
 **Output:**
+
 <img width="845" height="740" alt="image" src="https://github.com/user-attachments/assets/0c5e2dbc-0594-4355-b2d8-135eb01a3a9f" />
 
 
