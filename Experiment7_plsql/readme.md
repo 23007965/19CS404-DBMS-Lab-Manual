@@ -96,7 +96,12 @@ END;
 n = 7  
 Fibonacci sequence: 0, 1, 1, 2, 3, 5, 8
 
----
+### Program
+```sql
+
+```
+### Output
+
 
 ## 4. Write a PL/SQL Program to display the number in Reverse Order
 
@@ -109,7 +114,12 @@ Fibonacci sequence: 0, 1, 1, 2, 3, 5, 8
 n = 1535  
 Reversed number is 5351
 
----
+### Program
+```sql
+
+```
+### Output
+
 
 ## 5. Write a PL/SQL program to find the largest of three numbers
 
@@ -122,8 +132,15 @@ Reversed number is 5351
 a = 10, b = 9, c = 15  
 Largest of three number is 15
 
+### Program
+```sql
+
+```
+### Output
+
 ## RESULT
 Thus, the PL/SQL programs using variables, conditionals, and loops were executed successfully.
+
 
 
 
