@@ -48,7 +48,7 @@ BEGIN
         DBMS_OUTPUT.PUT_LINE('Greater number is: ' || num2);
     END IF;
 END;
----
+```
 ### Output
 
 <img width="568" height="111" alt="image" src="https://github.com/user-attachments/assets/69f5a994-2531-45c7-9bf7-bfb385598a2b" />
@@ -106,4 +106,5 @@ Largest of three number is 15
 
 ## RESULT
 Thus, the PL/SQL programs using variables, conditionals, and loops were executed successfully.
+
 
