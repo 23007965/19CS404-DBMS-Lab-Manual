@@ -64,7 +64,25 @@ END;
 **Expected Output:**  
 Sum of first 10 natural numbers is: 55
 
+### Program 
+```sql
+SET SERVEROUTPUT ON;
 
+DECLARE
+    n NUMBER := 10;       -- Number up to which sum is calculated
+    i NUMBER := 1;        -- Loop counter
+    total_sum NUMBER := 0; -- To store the sum
+BEGIN
+    WHILE i <= n LOOP
+        total_sum := total_sum + i;
+        i := i + 1;
+    END LOOP;
+
+    DBMS_OUTPUT.PUT_LINE('Sum of first ' || n || ' natural numbers is: ' || total_sum);
+END;
+```
+### Output
+<img width="580" height="116" alt="image" src="https://github.com/user-attachments/assets/f28a1122-55f8-4e78-a40c-98d122ed71ac" />
 
 ## 3. Write a PL/SQL program to generate Fibonacci series
 
@@ -106,5 +124,6 @@ Largest of three number is 15
 
 ## RESULT
 Thus, the PL/SQL programs using variables, conditionals, and loops were executed successfully.
+
 
 
