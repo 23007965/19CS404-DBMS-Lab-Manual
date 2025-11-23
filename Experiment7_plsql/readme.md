@@ -36,8 +36,22 @@ END;
 
 **Expected Output:**  
 Greater number is: 80
-
+### Program
+```sql
+DECLARE
+    num1 NUMBER := 80;  -- First number
+    num2 NUMBER := 50;  -- Second number
+BEGIN
+    IF num1 > num2 THEN
+        DBMS_OUTPUT.PUT_LINE('Greater number is: ' || num1);
+    ELSE
+        DBMS_OUTPUT.PUT_LINE('Greater number is: ' || num2);
+    END IF;
+END;
 ---
+### Output
+
+<img width="568" height="111" alt="image" src="https://github.com/user-attachments/assets/69f5a994-2531-45c7-9bf7-bfb385598a2b" />
 
 ## 2. Write a PL/SQL program to Calculate Sum of First N Natural Numbers
 
@@ -50,7 +64,7 @@ Greater number is: 80
 **Expected Output:**  
 Sum of first 10 natural numbers is: 55
 
----
+
 
 ## 3. Write a PL/SQL program to generate Fibonacci series
 
@@ -92,3 +106,4 @@ Largest of three number is 15
 
 ## RESULT
 Thus, the PL/SQL programs using variables, conditionals, and loops were executed successfully.
+
