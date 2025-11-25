@@ -33,7 +33,7 @@ END;
 **Expected Output:**
 - A new entry is added to the `employee_log` table each time a new record is inserted into the `employees` table.
 
----
+
 
 ## 2. Write a trigger to prevent deletion of records from a sensitive table.
 **Steps:**
@@ -75,3 +75,4 @@ END;
 
 ## RESULT
 Thus, the PL/SQL trigger programs were written and executed successfully.
+
