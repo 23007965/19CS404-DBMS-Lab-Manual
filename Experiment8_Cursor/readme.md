@@ -79,7 +79,7 @@ END;
 **Output:**  
 The program should display the employee details or an error message.
 
----
+
 
 ### **Question 2: Parameterized Cursor with Exception Handling**
 
