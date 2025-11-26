@@ -79,11 +79,55 @@ END;
 **Output:**  
 The program should display the employee details or an error message.
 
+###Table 
+```
+CREATE TABLE employees (
+    emp_id      NUMBER PRIMARY KEY,
+    emp_name    VARCHAR2(50),
+    designation VARCHAR2(50)
+);
+
+INSERT INTO employees VALUES (1, 'Alice', 'Manager');
+INSERT INTO employees VALUES (2, 'Bob', 'Developer');
+INSERT INTO employees VALUES (3, 'Charlie', 'Analyst');
+COMMIT;
+```
 ### Program 
 ```sql
+DECLARE
+
+    CURSOR emp_cur IS
+        SELECT emp_name, designation FROM employees;
+
+    emp_rec emp_cur%ROWTYPE;
+    
+    rows_fetched BOOLEAN := FALSE;
+BEGIN
+    OPEN emp_cur;
+    LOOP
+        FETCH emp_cur INTO emp_rec;
+        EXIT WHEN emp_cur%NOTFOUND;
+        rows_fetched := TRUE;
+        DBMS_OUTPUT.PUT_LINE('Name: ' || emp_rec.emp_name || 
+                             ', Designation: ' || emp_rec.designation);
+    END LOOP;
+    CLOSE emp_cur;
+
+    IF NOT rows_fetched THEN
+        RAISE NO_DATA_FOUND;
+    END IF;
+
+EXCEPTION
+    WHEN NO_DATA_FOUND THEN
+        DBMS_OUTPUT.PUT_LINE('No employee records found.');
+    WHEN OTHERS THEN
+        DBMS_OUTPUT.PUT_LINE('An unexpected error occurred: ' || SQLERRM);
+END;
 
 ```
 ### Output
+
+<img width="485" height="142" alt="image" src="https://github.com/user-attachments/assets/cee638a4-4007-414e-9715-5f9e42ebb6e7" />
 
 
 
