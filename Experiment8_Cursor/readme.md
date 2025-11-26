@@ -295,12 +295,56 @@ END;
 **Output:**  
 The program should display employee records or the appropriate error message if no data is found.
 
+### Table
+```
+-- Create the employees table with necessary fields (if not already done)
+CREATE TABLE employees (
+    emp_id      NUMBER PRIMARY KEY,
+    emp_name    VARCHAR2(50),
+    designation VARCHAR2(50),
+    salary      NUMBER
+);
+
+-- Insert sample data
+INSERT INTO employees VALUES (1, 'Alice', 'Manager',   60000);
+INSERT INTO employees VALUES (2, 'Bob',   'Developer', 40000);
+INSERT INTO employees VALUES (3, 'Charlie','Analyst',  50000);
+COMMIT;
+```
+
 ---
 ### Program 
 ```sql
+DECLARE
+    CURSOR emp_cur IS SELECT * FROM employees;
+    emp_rec employees%ROWTYPE;
+    found BOOLEAN := FALSE;
+BEGIN
+    OPEN emp_cur;
+    LOOP
+        FETCH emp_cur INTO emp_rec;
+        EXIT WHEN emp_cur%NOTFOUND;
+        found := TRUE;
+        DBMS_OUTPUT.PUT_LINE('ID: ' || emp_rec.emp_id ||
+                             ', Name: ' || emp_rec.emp_name ||
+                             ', Designation: ' || emp_rec.designation ||
+                             ', Salary: ' || emp_rec.salary);
+    END LOOP;
+    CLOSE emp_cur;
+    IF NOT found THEN
+        RAISE NO_DATA_FOUND;
+    END IF;
+EXCEPTION
+    WHEN NO_DATA_FOUND THEN
+        DBMS_OUTPUT.PUT_LINE('No employees found in the database.');
+    WHEN OTHERS THEN
+        DBMS_OUTPUT.PUT_LINE('Unexpected error: ' || SQLERRM);
+END;
 
 ```
 ### Output
+
+<img width="718" height="156" alt="image" src="https://github.com/user-attachments/assets/6c5c69f1-dcc4-45bf-b95a-5fd98976063f" />
 
 ### **Question 5: Cursor with FOR UPDATE Clause and Exception Handling**
 
@@ -321,9 +365,34 @@ The program should update employee salaries and display a message, or it should 
 
 ### Program 
 ```sql
+DECLARE
+    -- Cursor to select employees from a specific department for update
+    CURSOR dept_cur IS
+        SELECT emp_id, emp_name, salary FROM employees WHERE dept_no = 10 FOR UPDATE;
+    v_found BOOLEAN := FALSE;
+BEGIN
+    FOR emp_rec IN dept_cur LOOP
+        v_found := TRUE;
+        -- Increase salary by 5000 for demonstration
+        UPDATE employees SET salary = emp_rec.salary + 5000 WHERE emp_id = emp_rec.emp_id;
+        DBMS_OUTPUT.PUT_LINE('Updated salary for ' || emp_rec.emp_name || ' to ' || (emp_rec.salary + 5000));
+    END LOOP;
+    IF NOT v_found THEN
+        RAISE NO_DATA_FOUND;
+    END IF;
+    COMMIT;
+EXCEPTION
+    WHEN NO_DATA_FOUND THEN
+        DBMS_OUTPUT.PUT_LINE('No employees found in the specified department.');
+    WHEN OTHERS THEN
+        DBMS_OUTPUT.PUT_LINE('Unexpected error: ' || SQLERRM);
+END;
 
 ```
 ### Output
+
+<img width="480" height="119" alt="image" src="https://github.com/user-attachments/assets/ec4f2524-cd59-49c6-96c4-f41481ad921b" />
+
 ---
 
 ## RESULT
