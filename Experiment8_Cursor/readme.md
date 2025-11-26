@@ -79,7 +79,7 @@ END;
 **Output:**  
 The program should display the employee details or an error message.
 
-###Table 
+### Table 
 ```
 CREATE TABLE employees (
     emp_id      NUMBER PRIMARY KEY,
@@ -147,13 +147,64 @@ END;
 
 **Output:**  
 The program should display the employee details within the specified salary range or an error message if no data is found.
+### Table
+```
+CREATE TABLE employees (
+    emp_id      NUMBER PRIMARY KEY,
+    emp_name    VARCHAR2(50),
+    designation VARCHAR2(50)
+);
 
+INSERT INTO employees VALUES (1, 'Alice', 'Manager');
+INSERT INTO employees VALUES (2, 'Bob', 'Developer');
+INSERT INTO employees VALUES (3, 'Charlie', 'Analyst');
+COMMIT;
+
+-- Add salary column if not already present
+ALTER TABLE employees ADD (salary NUMBER);
+
+-- Insert sample salary values
+UPDATE employees SET salary = 60000 WHERE emp_id = 1;
+UPDATE employees SET salary = 40000 WHERE emp_id = 2;
+UPDATE employees SET salary = 50000 WHERE emp_id = 3;
+COMMIT;
+
+```
 ---
 ### Program 
 ```sql
+DECLARE
+    -- Parameterized cursor for salary range
+    CURSOR emp_cur(p_min NUMBER, p_max NUMBER) IS
+        SELECT emp_name, designation, salary FROM employees
+        WHERE salary BETWEEN p_min AND p_max;
+
+    emp_rec emp_cur%ROWTYPE;
+    found BOOLEAN := FALSE;
+BEGIN
+    -- Change these values to test different ranges
+    FOR emp_rec IN emp_cur(45000, 65000) LOOP
+        found := TRUE;
+        DBMS_OUTPUT.PUT_LINE('Name: ' || emp_rec.emp_name || 
+                             ', Designation: ' || emp_rec.designation ||
+                             ', Salary: ' || emp_rec.salary);
+    END LOOP;
+
+    IF NOT found THEN
+        RAISE NO_DATA_FOUND;
+    END IF;
+EXCEPTION
+    WHEN NO_DATA_FOUND THEN
+        DBMS_OUTPUT.PUT_LINE('No employee found in the specified salary range.');
+    WHEN OTHERS THEN
+        DBMS_OUTPUT.PUT_LINE('Unexpected error: ' || SQLERRM);
+END;
 
 ```
 ### Output
+
+<img width="617" height="121" alt="image" src="https://github.com/user-attachments/assets/7cfa1505-b848-4e00-86b7-369745c2ec05" />
+
 ### **Question 3: Cursor FOR Loop with Exception Handling**
 
 **Write a PL/SQL program using a cursor FOR loop to retrieve and display all employee names and their department numbers from the `employees` table. Implement exception handling for the following cases:**
@@ -170,13 +221,63 @@ The program should display the employee details within the specified salary rang
 
 **Output:**  
 The program should display employee names with their department numbers or the appropriate error message if no data is found.
+### Table
+```
+CREATE TABLE employees (
+    emp_id      NUMBER PRIMARY KEY,
+    emp_name    VARCHAR2(50),
+    designation VARCHAR2(50)
+);
 
+INSERT INTO employees VALUES (1, 'Alice', 'Manager');
+INSERT INTO employees VALUES (2, 'Bob', 'Developer');
+INSERT INTO employees VALUES (3, 'Charlie', 'Analyst');
+COMMIT;
+
+-- Add salary column if not already present
+ALTER TABLE employees ADD (salary NUMBER);
+
+-- Insert sample salary values
+UPDATE employees SET salary = 60000 WHERE emp_id = 1;
+UPDATE employees SET salary = 40000 WHERE emp_id = 2;
+UPDATE employees SET salary = 50000 WHERE emp_id = 3;
+COMMIT;
+
+-- Add dept_no column if not already present
+ALTER TABLE employees ADD (dept_no NUMBER);
+
+-- Insert sample department numbers
+UPDATE employees SET dept_no = 10 WHERE emp_id = 1;
+UPDATE employees SET dept_no = 20 WHERE emp_id = 2;
+UPDATE employees SET dept_no = 10 WHERE emp_id = 3;
+COMMIT;
+```
 ---
 ### Program 
 ```sql
+DECLARE
+    found BOOLEAN := FALSE;
+BEGIN
+    FOR emp_rec IN (SELECT emp_name, dept_no FROM employees) LOOP
+        found := TRUE;
+        DBMS_OUTPUT.PUT_LINE('Name: ' || emp_rec.emp_name || 
+                             ', Dept No: ' || emp_rec.dept_no);
+    END LOOP;
+    IF NOT found THEN
+        RAISE NO_DATA_FOUND;
+    END IF;
+EXCEPTION
+    WHEN NO_DATA_FOUND THEN
+        DBMS_OUTPUT.PUT_LINE('No employees found in the database.');
+    WHEN OTHERS THEN
+        DBMS_OUTPUT.PUT_LINE('Unexpected error: ' || SQLERRM);
+END;
 
 ```
 ### Output
+
+<img width="508" height="156" alt="image" src="https://github.com/user-attachments/assets/81f6925e-6889-4d85-bb60-1e3e850f94cf" />
+
 ### **Question 4: Cursor with `%ROWTYPE` and Exception Handling**
 
 **Write a PL/SQL program that uses a cursor with `%ROWTYPE` to fetch and display complete employee records (emp_id, emp_name, designation, salary). Implement exception handling for the following errors:**
