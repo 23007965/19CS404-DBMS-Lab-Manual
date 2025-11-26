@@ -79,6 +79,12 @@ END;
 **Output:**  
 The program should display the employee details or an error message.
 
+### Program 
+```sql
+
+```
+### Output
+
 
 
 ### **Question 2: Parameterized Cursor with Exception Handling**
@@ -99,7 +105,11 @@ The program should display the employee details or an error message.
 The program should display the employee details within the specified salary range or an error message if no data is found.
 
 ---
+### Program 
+```sql
 
+```
+### Output
 ### **Question 3: Cursor FOR Loop with Exception Handling**
 
 **Write a PL/SQL program using a cursor FOR loop to retrieve and display all employee names and their department numbers from the `employees` table. Implement exception handling for the following cases:**
@@ -118,7 +128,11 @@ The program should display the employee details within the specified salary rang
 The program should display employee names with their department numbers or the appropriate error message if no data is found.
 
 ---
+### Program 
+```sql
 
+```
+### Output
 ### **Question 4: Cursor with `%ROWTYPE` and Exception Handling**
 
 **Write a PL/SQL program that uses a cursor with `%ROWTYPE` to fetch and display complete employee records (emp_id, emp_name, designation, salary). Implement exception handling for the following errors:**
@@ -137,6 +151,11 @@ The program should display employee names with their department numbers or the a
 The program should display employee records or the appropriate error message if no data is found.
 
 ---
+### Program 
+```sql
+
+```
+### Output
 
 ### **Question 5: Cursor with FOR UPDATE Clause and Exception Handling**
 
@@ -155,6 +174,11 @@ The program should display employee records or the appropriate error message if 
 **Output:**  
 The program should update employee salaries and display a message, or it should display an error message if no data is found.
 
+### Program 
+```sql
+
+```
+### Output
 ---
 
 ## RESULT
